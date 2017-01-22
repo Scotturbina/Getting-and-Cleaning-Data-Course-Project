@@ -15,3 +15,8 @@ training <- read.table("UCI HAR Dataset/train/X_train.txt")[features_Required]
 training_Activities <- read.table("UCI HAR Dataset/train/Y_train.txt")
 training_Subjects <- read.table("UCI HAR Dataset/train/subject_train.txt")
 training <- cbind(training_Subjects, training_Activities, training)
+
+testing <- read.table("UCI HAR Dataset/test/X_test.txt")[features_Required]
+testing_Activities <- read.table("UCI HAR Dataset/test/Y_test.txt")
+testing_Subjects <- read.table("UCI HAR Dataset/test/subject_test.txt")
+testing <- cbind(testing_Subjects, testing_Activities, testing)
