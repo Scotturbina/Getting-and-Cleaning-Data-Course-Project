@@ -20,3 +20,9 @@ testing <- read.table("UCI HAR Dataset/test/X_test.txt")[features_Required]
 testing_Activities <- read.table("UCI HAR Dataset/test/Y_test.txt")
 testing_Subjects <- read.table("UCI HAR Dataset/test/subject_test.txt")
 testing <- cbind(testing_Subjects, testing_Activities, testing)
+
+# merge the datasets and put the respectives labels
+New_Data <- rbind(training, testing)
+colnames(New_Data) <- c("subject", "activity", features_Required.names)
+
+
