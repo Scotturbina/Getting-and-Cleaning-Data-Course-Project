@@ -9,3 +9,9 @@ features_Required.names <- features[features_Required,2]
 features_Required.names = gsub('-mean', 'Mean', features_Required.names)
 features_Required.names = gsub('-std', 'Std', features_Required.names)
 features_Required.names <- gsub('[-()]', '', features_Required.names)
+##Load required datasets
+
+training <- read.table("UCI HAR Dataset/train/X_train.txt")[features_Required]
+training_Activities <- read.table("UCI HAR Dataset/train/Y_train.txt")
+training_Subjects <- read.table("UCI HAR Dataset/train/subject_train.txt")
+training <- cbind(training_Subjects, training_Activities, training)
