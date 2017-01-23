@@ -25,4 +25,15 @@ testing <- cbind(testing_Subjects, testing_Activities, testing)
 New_Data <- rbind(training, testing)
 colnames(New_Data) <- c("subject", "activity", features_Required.names)
 
+## describing acitivies names
+
+New_Data$activity <- factor(New_Data$activity, levels = activity_Labels[,1], labels = activity_Labels[,2])
+New_Data$subject <- as.factor(New_Data$subject)
+
+New_Data.melted <- melt(New_Data, id = c("subject", "activity"))
+New_data.mean <- dcast(New_Data.melted, subject + activity ~ variable, mean)
+
+write.table(New_data.mean, "Tidy.txt", row.names = FALSE, quote = FALSE)
+
+## end
 
